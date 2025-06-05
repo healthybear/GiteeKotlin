@@ -4,6 +4,7 @@ pluginManagement {
         maven(uri("https://maven.aliyun.com/repository/public"))
         maven(uri("https://maven.aliyun.com/repository/gradle-plugin"))
         maven(uri("https://maven.aliyun.com/repository/google"))
+        maven(uri("https://jitpack.io"))
         google {
             content {
                 includeGroupByRegex("com\\.android.*")
@@ -22,6 +23,7 @@ dependencyResolutionManagement {
         maven(uri("https://maven.aliyun.com/repository/public"))
         maven(uri("https://maven.aliyun.com/repository/gradle-plugin"))
         maven(uri("https://maven.aliyun.com/repository/google"))
+        maven(uri("https://jitpack.io"))
         google()
         mavenCentral()
     }
@@ -29,3 +31,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "GiteeKotlin"
 include(":app")
+include(":library")
