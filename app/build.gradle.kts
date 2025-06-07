@@ -20,8 +20,11 @@ android {
     }
 
     buildTypes {
-        release {
+        debug {
             isMinifyEnabled = false
+        }
+        release {
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -36,7 +39,9 @@ android {
         jvmTarget = "11"
     }
     buildFeatures {
-        compose = true
+//        compose = true
+        dataBinding = true
+        viewBinding = true
     }
 }
 
@@ -50,6 +55,17 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(project(":library"))
+    implementation(libs.androidx.viewpager2)
+    implementation(libs.androidx.recyclerview)
+    implementation(libs.google.material)
+    implementation(libs.androidx.legacy.support.v4)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.fragment.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.annotation)
+    implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
