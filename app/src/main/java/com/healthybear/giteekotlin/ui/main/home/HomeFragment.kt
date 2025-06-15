@@ -1,14 +1,16 @@
 package com.healthybear.giteekotlin.ui.main.home
 
-import androidx.fragment.app.viewModels
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.healthybear.giteekotlin.R
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import com.healthybear.giteekotlin.databinding.FragmentHomeBinding
+import com.tencent.bugly.crashreport.CrashReport
 
 class HomeFragment : Fragment() {
+    private lateinit var binding: FragmentHomeBinding
 
     companion object {
         fun newInstance() = HomeFragment()
@@ -18,14 +20,19 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         // TODO: Use the ViewModel
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_home, container, false)
+
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding.clickTest.setOnClickListener {
+            CrashReport.testJavaCrash();
+        }
+        return binding.root
     }
 }

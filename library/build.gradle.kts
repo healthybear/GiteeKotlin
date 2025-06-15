@@ -10,9 +10,12 @@ android {
 
     defaultConfig {
         minSdk = 24
-
+        ndk {
+            abiFilters += listOf("armeabi, armeabi-v7a", "arm64-v8a", "x86", "x86_64")
+        }
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+
     }
 
     buildTypes {
@@ -47,6 +50,11 @@ dependencies {
     implementation(libs.moshi.kotlin)
     implementation(libs.moshi.kotlin.codegen)
     implementation(libs.okhttp)
+    implementation(libs.eventbus)
+    implementation(libs.glide)
+//    ksp(libs.glide.compiler)
+    implementation(libs.lottie)
+    api(libs.crashreport)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

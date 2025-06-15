@@ -24,7 +24,7 @@ class MainActivity : BaseActivity() {
         setContentView(mDataBinding.root)
         mViewModel = ViewModelProvider(this, MainViewModelFactory())
             .get(MainViewModel::class.java)
-
+        
         mFragmentList = mViewModel.getFragmentList() as ArrayList<Fragment>
         mFmAdapter = MainViewPagerAdapter(mActivityWR.get()!!, mFragmentList)
         mDataBinding.viewPager.adapter = mFmAdapter

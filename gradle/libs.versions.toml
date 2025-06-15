@@ -29,6 +29,10 @@ lifecycleViewmodelKtx = "2.6.1"
 fragmentKtx = "1.5.6"
 annotation = "1.6.0"
 constraintlayoutVersion = "2.1.4"
+eventbus = "3.3.1"
+glide = "4.16.0"
+lottie = "6.6.6"
+crashreport = "4.1.9.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -65,6 +69,11 @@ androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifec
 androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragmentKtx" }
 androidx-annotation = { group = "androidx.annotation", name = "annotation", version.ref = "annotation" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayoutVersion" }
+eventbus = { group = "org.greenrobot", name = "eventbus", version.ref = "eventbus" }
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
+glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref = "glide" }
+lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottie" }
+crashreport = { group = "com.tencent.bugly", name = "crashreport", version.ref = "crashreport" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
