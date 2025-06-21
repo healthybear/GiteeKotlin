@@ -1,5 +1,5 @@
 [versions]
-agp = "8.9.2"
+agp = "8.10.1"
 kotlin = "2.0.21"
 coreKtx = "1.10.1"
 junit = "4.13.2"
@@ -12,14 +12,14 @@ appcompat = "1.6.1"
 material = "1.10.0"
 retrofit = "3.0.0"
 retrofitAdapters = "2.8.1"
-converterMoshi = "3.0.0"
+retrofitConverterMoshi = "3.0.0"
 loggingInterceptor = "5.0.0-alpha.16"
 moshi = "1.15.2"
 moshiAdapters = "1.15.2"
 moshiKotlin = "1.15.2"
 moshiKotlinCodegen = "1.15.2"
 okhttp = "5.0.0-alpha.16"
-ksp = "2.1.10-1.0.29"
+ksp = "2.0.21-1.0.25"
 viewpager2 = "1.1.0-beta01"
 recyclerview = "1.3.0"
 materialVersion = "1.12.0"
@@ -33,6 +33,8 @@ eventbus = "3.3.1"
 glide = "4.16.0"
 lottie = "6.6.6"
 crashreport = "4.1.9.3"
+utilcodex = "1.31.1"
+mmkv = "2.2.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -53,7 +55,7 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-adapters = { group = "com.squareup.retrofit2", name = "retrofit-adapters", version.ref = "retrofitAdapters" }
-converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "converterMoshi" }
+retrofit-converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofitConverterMoshi" }
 logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "loggingInterceptor" }
 moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshi" }
 moshi-adapters = { group = "com.squareup.moshi", name = "moshi-adapters", version.ref = "moshiAdapters" }
@@ -74,6 +76,8 @@ glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "gl
 glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref = "glide" }
 lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottie" }
 crashreport = { group = "com.tencent.bugly", name = "crashreport", version.ref = "crashreport" }
+utilcodex = { group = "com.blankj", name = "utilcodex", version.ref = "utilcodex" }
+mmkv = { group = "com.tencent", name = "mmkv", version.ref = "mmkv" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

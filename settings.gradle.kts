@@ -15,6 +15,12 @@ pluginManagement {
         mavenCentral()
         gradlePluginPortal()
     }
+
+    // 明确声明插件版本（关键！）
+//    plugins {
+//        id("com.google.devtools.ksp") version "2.1.20-1.0.32"
+//        // 其他插件...
+//    }
 }
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)

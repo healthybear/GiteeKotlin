@@ -34,6 +34,7 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
 }
 
 dependencies {
@@ -41,20 +42,22 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.adapters)
-    implementation(libs.converter.moshi)
+    api(libs.retrofit)
+    api(libs.retrofit.adapters)
+    api(libs.retrofit.converter.moshi)
     implementation(libs.logging.interceptor)
-    implementation(libs.moshi)
-    implementation(libs.moshi.adapters)
-    implementation(libs.moshi.kotlin)
-    implementation(libs.moshi.kotlin.codegen)
+    api(libs.moshi)
+    api(libs.moshi.adapters)
+    api(libs.moshi.kotlin)
+    ksp(libs.moshi.kotlin.codegen)
     implementation(libs.okhttp)
-    implementation(libs.eventbus)
-    implementation(libs.glide)
-//    ksp(libs.glide.compiler)
-    implementation(libs.lottie)
+    api(libs.eventbus)
+    api(libs.glide)
+    ksp(libs.glide.compiler)
+    api(libs.lottie)
     api(libs.crashreport)
+    api(libs.utilcodex)
+    implementation(libs.mmkv)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

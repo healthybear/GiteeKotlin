@@ -1,5 +1,6 @@
 
 import android.app.Application
+import com.blankj.utilcode.util.AppUtils
 import com.tencent.bugly.crashreport.CrashReport
 
 /**
@@ -16,8 +17,7 @@ class GKApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        //TODO 第三个参数根据环境选择true或false
         TODO("秘钥之类的东西还是不能明文保存")
-        CrashReport.initCrashReport(getApplicationContext(), "379ddfdabe", false);
+        CrashReport.initCrashReport(getApplicationContext(), "379ddfdabe", AppUtils.isAppDebug());
     }
 }
