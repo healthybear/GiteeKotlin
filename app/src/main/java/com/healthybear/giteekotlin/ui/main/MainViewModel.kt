@@ -7,9 +7,11 @@ import com.healthybear.giteekotlin.ui.main.home.HomeFragment
 import com.healthybear.giteekotlin.ui.main.message.MessageFragment
 import com.healthybear.giteekotlin.ui.main.repository.RepositoryFragment
 import com.healthybear.giteekotlin.ui.main.user.UserFragment
+import com.healthybear.library.base.BaseViewModel
 import java.util.Arrays
 
-class MainViewModel(private val mainRepository: MainRepository) : ViewModel() {
+class MainViewModel() : BaseViewModel() {
+    
     fun getFragmentList(): List<Fragment> {
         return ArrayList(
             Arrays.asList(

@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.healthybear.library"
-    compileSdk = 35
+    compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
         minSdk = 24
@@ -33,6 +33,11 @@ android {
     }
     kotlinOptions {
         jvmTarget = "11"
+    }
+    buildFeatures {
+//        compose = true
+        dataBinding = true
+        viewBinding = true
     }
 
 }

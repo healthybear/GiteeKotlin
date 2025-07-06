@@ -12,35 +12,23 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.SnackbarUtils
 import com.healthybear.giteekotlin.databinding.FragmentHomeBinding
+import com.healthybear.library.base.BaseFragment
 import kotlinx.coroutines.launch
 
-class HomeFragment : Fragment() {
-    private lateinit var binding: FragmentHomeBinding
+class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private val viewModel: HomeViewModel by viewModels()
 
     companion object {
         fun newInstance() = HomeFragment()
     }
 
+    override val inflater: (LayoutInflater, container: ViewGroup?, attachToRoot: Boolean) -> FragmentHomeBinding
+        get() = FragmentHomeBinding::inflate
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        // TODO: Use the ViewModel
 
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
-        binding.clickTest.setOnClickListener {
-            viewModel.searchResponse("Test")
-        }
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setupStateObserver()
-        return binding.root
     }
 
     private fun setupStateObserver() {
@@ -48,7 +36,7 @@ class HomeFragment : Fragment() {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.mResponses.collect {
                     LogUtils.iTag("main",  it.toString())
-                    SnackbarUtils.with(binding.root).setMessage(it.toString()).show()
+                    SnackbarUtils.with(mBinding.root).setMessage(it.toString()).show()
                 }
             }
         }

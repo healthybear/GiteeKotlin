@@ -7,25 +7,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.healthybear.giteekotlin.R
+import com.healthybear.giteekotlin.databinding.FragmentMessageBinding
+import com.healthybear.library.base.BaseFragment
 
-class MessageFragment : Fragment() {
+class MessageFragment : BaseFragment<FragmentMessageBinding>() {
 
     companion object {
         fun newInstance() = MessageFragment()
     }
+    override val inflater: (LayoutInflater, container: ViewGroup?, attachToRoot: Boolean) -> FragmentMessageBinding
+        get() = FragmentMessageBinding::inflate
 
     private val viewModel: MessageViewModel by viewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        // TODO: Use the ViewModel
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return inflater.inflate(R.layout.fragment_message, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 }

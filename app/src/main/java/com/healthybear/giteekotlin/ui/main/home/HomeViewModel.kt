@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.blankj.utilcode.util.LogUtils
 import com.healthybear.giteekotlin.network.response.SearchRepositoriesResult
+import com.healthybear.library.base.BaseViewModel
 import com.healthybear.library.network.response.ApiResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -11,7 +12,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel : BaseViewModel() {
     private val dataRepository by lazy { HomeRepository() }
 
     private val _responses = MutableStateFlow<ApiResponse<List<SearchRepositoriesResult>>>(ApiResponse.Loading)
