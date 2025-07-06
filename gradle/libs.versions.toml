@@ -38,6 +38,17 @@ lottie = "6.6.6"
 crashreport = "4.1.9.3"
 utilcodex = "1.31.1"
 mmkv = "2.2.2"
+coil = "2.7.0"
+coilGif = "2.7.0"
+coilSvg = "2.7.0"
+coilVideo = "2.7.0"
+core = "3.3.0"
+color = "3.3.0"
+input = "3.3.0"
+files = "3.3.0"
+datetime = "3.3.0"
+bottomsheets = "3.3.0"
+lifecycle = "3.3.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -81,6 +92,17 @@ lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottie"
 crashreport = { group = "com.tencent.bugly", name = "crashreport", version.ref = "crashreport" }
 utilcodex = { group = "com.blankj", name = "utilcodex", version.ref = "utilcodex" }
 mmkv = { group = "com.tencent", name = "mmkv", version.ref = "mmkv" }
+coil = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
+coil-gif = { group = "io.coil-kt", name = "coil-gif", version.ref = "coilGif" }
+coil-svg = { group = "io.coil-kt", name = "coil-svg", version.ref = "coilSvg" }
+coil-video = { group = "io.coil-kt", name = "coil-video", version.ref = "coilVideo" }
+core = { group = "com.afollestad.material-dialogs", name = "core", version.ref = "core" }
+color = { group = "com.afollestad.material-dialogs", name = "color", version.ref = "color" }
+input = { group = "com.afollestad.material-dialogs", name = "input", version.ref = "input" }
+files = { group = "com.afollestad.material-dialogs", name = "files", version.ref = "files" }
+datetime = { group = "com.afollestad.material-dialogs", name = "datetime", version.ref = "datetime" }
+bottomsheets = { group = "com.afollestad.material-dialogs", name = "bottomsheets", version.ref = "bottomsheets" }
+lifecycle = { group = "com.afollestad.material-dialogs", name = "lifecycle", version.ref = "lifecycle" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
