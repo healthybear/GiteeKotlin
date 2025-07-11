@@ -44,8 +44,11 @@ android {
 
 dependencies {
 
+    api(libs.gson)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.material)
     api(libs.retrofit)
     api(libs.retrofit.adapters)
@@ -65,6 +68,13 @@ dependencies {
     api(libs.datetime)
     api(libs.bottomsheets)
     api(libs.lifecycle)
+
+    // https://github.com/Justson/AgentWeb  好用的webview
+    // https://blog.csdn.net/gitblog_07337/article/details/142232504
+    api(libs.agentweb.core)
+    api(libs.agentweb.filechooser)
+    api(libs.justson.downloader)
+
     ksp(libs.moshi.kotlin.codegen)
     implementation(libs.okhttp)
     api(libs.eventbus)

@@ -12,7 +12,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.SnackbarUtils
 import com.healthybear.giteekotlin.databinding.FragmentHomeBinding
-import com.healthybear.library.base.BaseFragment
+import com.healthybear.library.base.fragment.BaseFragment
 import kotlinx.coroutines.launch
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {

@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.healthybear.giteekotlin.R
 import com.healthybear.giteekotlin.databinding.FragmentMessageBinding
-import com.healthybear.library.base.BaseFragment
+import com.healthybear.library.base.fragment.BaseFragment
 
 class MessageFragment : BaseFragment<FragmentMessageBinding>() {
 

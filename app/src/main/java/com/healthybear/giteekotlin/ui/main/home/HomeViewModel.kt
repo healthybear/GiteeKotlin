@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.blankj.utilcode.util.LogUtils
 import com.healthybear.giteekotlin.network.response.SearchRepositoriesResult
-import com.healthybear.library.base.BaseViewModel
+import com.healthybear.library.base.viewModel.BaseViewModel
 import com.healthybear.library.network.response.ApiResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow

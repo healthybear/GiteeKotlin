@@ -8,7 +8,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.healthybear.giteekotlin.R
 import com.healthybear.giteekotlin.databinding.ActivityMainBinding
 import com.healthybear.giteekotlin.ui.main.adapter.MainViewPagerAdapter
-import com.healthybear.library.base.BaseActivity
+import com.healthybear.library.base.activity.BaseActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
@@ -20,13 +20,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override val inflater: (inflater: LayoutInflater) -> ActivityMainBinding
         get() = ActivityMainBinding::inflate
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-//        mViewModel = ViewModelProvider(this, MainViewModelFactory())
-//            .get(MainViewModel::class.java)
-        
+    override fun initView() {
         mFragmentList = mViewModel.getFragmentList() as ArrayList<Fragment>
         mFmAdapter = MainViewPagerAdapter(mActivityWR.get()!!, mFragmentList)
         mBinding.viewPager.adapter = mFmAdapter
@@ -60,6 +54,5 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             }
         }
         mBinding.bottomNavigation.selectedItemId = R.id.nav_home
-        
     }
 }

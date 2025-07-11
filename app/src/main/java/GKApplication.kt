@@ -1,6 +1,9 @@
+package com.healthybear.giteekotlin
 
 import android.app.Application
 import com.blankj.utilcode.util.AppUtils
+import com.blankj.utilcode.util.LogUtils
+import com.healthybear.giteekotlin.BuildConfig
 import com.tencent.bugly.crashreport.CrashReport
 
 /**
@@ -8,7 +11,6 @@ import com.tencent.bugly.crashreport.CrashReport
  * @Date: 2025-06-15 10:20
  * @Description:
  */
-// TODO 窝草，不能定义自定义Application，不然会报错
 class GKApplication : Application() {
 
     companion object {
@@ -17,7 +19,9 @@ class GKApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        TODO("秘钥之类的东西还是不能明文保存")
-        CrashReport.initCrashReport(getApplicationContext(), "379ddfdabe", AppUtils.isAppDebug());
+        // 初始化Bugly
+        CrashReport.initCrashReport(getApplicationContext(), BuildConfig.BUGLY_API_KEY, AppUtils.isAppDebug());
+        // 初始化日志
+//        LogUtils.getConfig().
     }
 }

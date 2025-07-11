@@ -1,4 +1,4 @@
-package com.healthybear.library.base
+package com.healthybear.library.base.viewModel
 
 import androidx.lifecycle.ViewModel
 

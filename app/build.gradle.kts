@@ -17,6 +17,12 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled = true
+
+        buildConfigField("String", "BUGLY_API_KEY", "\"379ddfdabe\"")
+        buildConfigField("String", "GITEE_CLIENT_ID", "\"af4842bf0970b4f57ce41d9f7993d3b193f0a4143dc00c64b745a114162a9464\"")
+
     }
 
     buildTypes {
@@ -42,6 +48,7 @@ android {
 //        compose = true
         dataBinding = true
         viewBinding = true
+        buildConfig = true
     }
 }
 
@@ -66,6 +73,7 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.annotation)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.activity)
     ksp(libs.glide.compiler)
     ksp(libs.moshi.kotlin.codegen)
     testImplementation(libs.junit)
