@@ -10,17 +10,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.widget.LinearLayout
+import com.blankj.utilcode.util.GsonUtils
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.SPUtils
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.healthybear.giteekotlin.BuildConfig
 import com.healthybear.giteekotlin.R
+import com.healthybear.giteekotlin.constants.AppConstants
+import com.healthybear.giteekotlin.dataSource.mmkv.SessionStorage
 import com.healthybear.giteekotlin.databinding.FragmentOauthBinding
 import com.healthybear.library.base.fragment.BaseFragment
 import com.just.agentweb.AgentWeb
 import com.just.agentweb.WebChromeClient
 import com.just.agentweb.WebViewClient
+import com.kongzue.dialogx.dialogs.TipDialog
 import com.squareup.moshi.JsonReader
 import com.squareup.moshi.JsonWriter
 import com.squareup.moshi.Moshi
@@ -36,6 +40,9 @@ class OAuthFragment : BaseFragment<FragmentOauthBinding>() {
     private val clientId = BuildConfig.GITEE_CLIENT_ID
     private val redirectUri = "http://119.29.247.108:8089/authentication/gitee"
 
+    private val mSessionStorage = SessionStorage()
+
+
     private lateinit var mAgentWeb: AgentWeb
 
     override val inflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentOauthBinding
@@ -50,8 +57,16 @@ class OAuthFragment : BaseFragment<FragmentOauthBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+
         var OAuthUrl =
             "https://gitee.com/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code"
+
+        // 如果之前已经授权过的需要跳过授权页面，需要在上面第一步的 URL 加上 scope 参数，且 scope 的值需要和用户上次授权的勾选的一致
+        if (false) {
+            OAuthUrl = "https://gitee.com/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=user_info%20projects%20pull_requests"
+        }
+
         mAgentWeb = AgentWeb.with(mActivityWR.get())
             .setAgentWebParent(mBinding.agentWebView, LinearLayout.LayoutParams(-1, -1))
             .useDefaultIndicator()
@@ -78,11 +93,11 @@ class OAuthFragment : BaseFragment<FragmentOauthBinding>() {
                     jsonObject.addProperty(name, value)
                 }
                 if (jsonObject.has("code")) {
-                    SPUtils.getInstance().put("code", jsonObject.get("code").asString)
-                } else {
-
+                    mSessionStorage.setData(AppConstants.STORAGE_KEYS.TAG_GITEE_TOKEN, jsonObject.get("code").asString)
                 }
-                mActivityWR.get()?.finish()
+
+                LogUtils.d("onPageStarted-code: ${GsonUtils.toJson(jsonObject)}")
+                activity?.finish()
             }
             LogUtils.d("onPageStarted: $p1")
 

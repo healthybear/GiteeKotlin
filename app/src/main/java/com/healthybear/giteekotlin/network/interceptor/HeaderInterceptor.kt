@@ -1,12 +1,12 @@
-package com.healthybear.library.network.interceptor
+package com.healthybear.giteekotlin.com.healthybear.giteekotlin.network.interceptor
 
 import com.blankj.utilcode.util.LogUtils
+import com.healthybear.giteekotlin.com.healthybear.giteekotlin.network.manager.CookiesManager
 import com.healthybear.library.network.constant.ARTICLE_WEBSITE
 import com.healthybear.library.network.constant.COIN_WEBSITE
 import com.healthybear.library.network.constant.COLLECTION_WEBSITE
 import com.healthybear.library.network.constant.KEY_COOKIE
 import com.healthybear.library.network.constant.NOT_COLLECTION_WEBSITE
-import com.healthybear.library.network.manager.CookiesManager
 import okhttp3.Interceptor
 import okhttp3.Response
 

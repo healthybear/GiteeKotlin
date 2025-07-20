@@ -13,6 +13,7 @@ import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.SnackbarUtils
 import com.healthybear.giteekotlin.databinding.FragmentHomeBinding
 import com.healthybear.library.base.fragment.BaseFragment
+import com.healthybear.library.network.response.ApiResponse
 import kotlinx.coroutines.launch
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
@@ -29,7 +30,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupStateObserver()
-
+        mBinding.clickTest.setOnClickListener {
+            viewModel.searchResponse("android")
+        }
     }
 
     private fun setupStateObserver() {
@@ -37,7 +40,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.mResponses.collect {
                     LogUtils.iTag("main",  it.toString())
-                    SnackbarUtils.with(mBinding.root).setMessage(it.toString()).show()
+                    when (it) {
+                        is ApiResponse.Error -> {
+                            LogUtils.eTag("main error",  it.message)
+                        }
+                        is ApiResponse.Success -> {
+                            LogUtils.iTag("main success",  it.data.toString())
+                        }
+                        else -> {
+                            LogUtils.iTag("main else ",  it.toString())
+                        }
+                    }
                 }
             }
         }

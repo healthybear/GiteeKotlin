@@ -1,13 +1,15 @@
-package com.healthybear.library.network.manager
+package com.healthybear.giteekotlin.com.healthybear.giteekotlin.network.manager
 
 import com.blankj.utilcode.util.AppUtils
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.NetworkUtils
+import com.healthybear.giteekotlin.com.healthybear.giteekotlin.network.interceptor.CookiesInterceptor
+import com.healthybear.giteekotlin.com.healthybear.giteekotlin.network.interceptor.HeaderInterceptor
+import com.healthybear.giteekotlin.com.healthybear.giteekotlin.network.interceptor.ResponseInterceptor
+import com.healthybear.giteekotlin.com.healthybear.giteekotlin.network.interceptor.TokenInterceptor
 import com.healthybear.library.network.constant.BASE_URL
 import com.healthybear.library.network.error.ApiException
 import com.healthybear.library.network.error.CusError
-import com.healthybear.library.network.interceptor.CookiesInterceptor
-import com.healthybear.library.network.interceptor.HeaderInterceptor
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.Interceptor
@@ -55,6 +57,7 @@ object HttpManager {
         val interceptors = mutableListOf<Interceptor>()
         build.addInterceptor(CookiesInterceptor())
         build.addInterceptor(HeaderInterceptor())
+        build.addInterceptor(TokenInterceptor())
         //日志拦截器
         val logInterceptor = HttpLoggingInterceptor { message ->
             LogUtils.dTag("logInterceptor", message)
@@ -76,6 +79,7 @@ object HttpManager {
                 }
             }
         })
+        build.addInterceptor(ResponseInterceptor())
         return build.build()
     }
 }

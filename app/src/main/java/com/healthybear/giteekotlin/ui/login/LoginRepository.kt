@@ -1,10 +1,8 @@
 package com.healthybear.giteekotlin.ui.login
 
 import com.healthybear.giteekotlin.network.api.IAccessApi
-import com.healthybear.giteekotlin.network.api.ISeacherApi
 import com.healthybear.giteekotlin.network.response.GiteeToken
-import com.healthybear.giteekotlin.network.response.SearchRepositoriesResult
-import com.healthybear.library.network.manager.HttpManager
+import com.healthybear.giteekotlin.com.healthybear.giteekotlin.network.manager.HttpManager
 import com.healthybear.library.network.repository.BaseRepository
 import com.healthybear.library.network.response.ApiResponse
 import kotlinx.coroutines.flow.Flow

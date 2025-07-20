@@ -22,6 +22,7 @@ android {
 
         buildConfigField("String", "BUGLY_API_KEY", "\"379ddfdabe\"")
         buildConfigField("String", "GITEE_CLIENT_ID", "\"af4842bf0970b4f57ce41d9f7993d3b193f0a4143dc00c64b745a114162a9464\"")
+        buildConfigField("String", "GITEE_CLIENT_SECRET", "\"220dfe4d83601d0568ae4a342442cc9bdba087ea76d949aedd2cdbdecc9d940d\"")
 
     }
 

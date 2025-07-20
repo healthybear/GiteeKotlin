@@ -1,4 +1,4 @@
-package com.healthybear.library.network.manager
+package com.healthybear.giteekotlin.com.healthybear.giteekotlin.network.manager
 
 import com.blankj.utilcode.util.LogUtils
 import com.healthybear.library.common.HTTP_COOKIES_INFO

@@ -8,9 +8,11 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.CoroutineExceptionHandler
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.customview.customView
 import com.blankj.utilcode.util.LogUtils
+import com.healthybear.library.network.error.ApiException
 import com.healthybear.library.R
 import com.holo.architecture.widget.TransBehavior
 import kotlinx.coroutines.Job
@@ -42,6 +44,15 @@ abstract class BaseActivity<DB : ViewDataBinding> : AppCompatActivity() {
         enableETE()
 
         initView()
+    }
+
+
+    /**
+     * 处理token错误，如token不存在或刷新失败
+     * 子类可重写此方法实现具体的跳转逻辑
+     */
+    open fun onTokenError() {
+        // 默认实现为空，由子类重写
     }
 
     fun showLoading() {

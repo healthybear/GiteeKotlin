@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 class HomeViewModel : BaseViewModel() {
     private val dataRepository by lazy { HomeRepository() }
 
-    private val _responses = MutableStateFlow<ApiResponse<List<SearchRepositoriesResult>>>(ApiResponse.Loading)
+    private val _responses = MutableStateFlow<ApiResponse<List<SearchRepositoriesResult>>>(ApiResponse.Empty)
     val mResponses: StateFlow<ApiResponse<List<SearchRepositoriesResult>>> = _responses
 
 
@@ -24,16 +24,12 @@ class HomeViewModel : BaseViewModel() {
             dataRepository.searchRepositories_simple(work)
                 .flowOn(Dispatchers.IO)
                 .collect { state ->
-                    LogUtils.d("test   "+state.toString())
+                    if (state is ApiResponse.Success) {
+                        LogUtils.d("test   "+state.data)
+                    }
                     _responses.value = state
-//                    when(state) {
-//                        ApiResponse.Loading -> _responses.value = state
-//                        is ApiResponse.Error -> _responses.value = state
-//                        is ApiResponse.Success<*> -> _responses.value = state
-//                    }
                 }
 
         }
     }
-    // TODO: Implement the ViewModel
 }

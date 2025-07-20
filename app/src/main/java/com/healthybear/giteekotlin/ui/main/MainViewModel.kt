@@ -13,8 +13,10 @@ class MainViewModel() : BaseViewModel() {
     fun getFragmentList(): List<Fragment> {
         return ArrayList(
             Arrays.asList(
-                HomeFragment.newInstance(), RepositoryFragment.newInstance(),
-            MessageFragment.newInstance(), UserFragment.newInstance()))
+                HomeFragment.newInstance(),
+                RepositoryFragment.newInstance(),
+                MessageFragment.newInstance(),
+                UserFragment.newInstance()))
     }
 
 

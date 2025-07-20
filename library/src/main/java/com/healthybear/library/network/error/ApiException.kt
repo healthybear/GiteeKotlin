@@ -31,4 +31,8 @@ open class ApiException: Exception {
         }
     }
 
+    class TokenNotFoundException(message: String) : ApiException(-1, message)
+
+    class RefreshTokenFailedException(message: String) : ApiException(-1, message)
+
 }

@@ -54,6 +54,7 @@ agentwebCore = "v5.1.1-androidx"
 agentwebFilechooser = "v5.1.1-androidx"
 justsonDownloader = "v5.0.4-androidx"
 gson = "2.13.1"
+dialogx = "0.0.49"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -113,6 +114,7 @@ agentweb-core = { group = "io.github.justson", name = "agentweb-core", version.r
 agentweb-filechooser = { group = "io.github.justson", name = "agentweb-filechooser", version.ref = "agentwebFilechooser" }
 justson-downloader = { group = "com.github.Justson", name = "Downloader", version.ref = "justsonDownloader" }
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+dialogx = { group = "com.github.kongzue.DialogX", name = "DialogX", version.ref = "dialogx" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

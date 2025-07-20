@@ -1,16 +1,29 @@
 package com.healthybear.giteekotlin.ui.login
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.compose.material3.Snackbar
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.blankj.utilcode.util.LogUtils
+import com.blankj.utilcode.util.SnackbarUtils
+import com.google.android.material.snackbar.Snackbar
+import com.healthybear.giteekotlin.BuildConfig
 import com.healthybear.giteekotlin.R
 import com.healthybear.giteekotlin.databinding.FragmentPwdBinding
 import com.healthybear.library.base.fragment.BaseFragment
+import com.healthybear.library.network.response.ApiResponse
+import com.kongzue.dialogx.DialogX
+import com.kongzue.dialogx.dialogs.TipDialog
+import com.kongzue.dialogx.dialogs.WaitDialog
 import kotlinx.coroutines.launch
 
 /**
@@ -27,27 +40,26 @@ class PwdFragment : BaseFragment<FragmentPwdBinding>() {
         fun newInstance() = PwdFragment()
     }
 
-    private val mViewModel by lazy { LoginViewModel() }
+    private lateinit var viewModel: LoginViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupStateObserver()
+        viewModel = ViewModelProvider(requireActivity())[LoginViewModel::class.java]
+
         mBinding.btnLogin.setOnClickListener {
-            mViewModel.login(
-                mBinding.etEmail.text.trim().toString(),
-                mBinding.etPassword.text.trim().toString(),
-                "",
-                "")
+            viewModel.login(
+                mBinding.etEmail.text.toString().trim(),
+                mBinding.etPassword.text.toString().trim(),
+                BuildConfig.GITEE_CLIENT_ID,
+                BuildConfig.GITEE_CLIENT_SECRET)
+        }
+
+        mBinding.tvSwitchLogin.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, OAuthFragment.newInstance())
+                .addToBackStack(null)
+                .commit()
         }
     }
 
-    private fun setupStateObserver() {
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                mViewModel.loginResult.collect { response -> // 处理登录结果
-
-                }
-            }
-        }
-    }
 }

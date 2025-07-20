@@ -1,5 +1,6 @@
 package com.healthybear.giteekotlin.network.api
 
+import com.healthybear.giteekotlin.constants.AppConstants
 import com.healthybear.giteekotlin.network.response.GiteeToken
 import retrofit2.Response
 import retrofit2.http.Field
@@ -27,6 +28,17 @@ interface IAccessApi {
         @Field("password") password: String,
         @Field("client_id") clientId: String,
         @Field("client_secret") clientSecret: String,
-        @Field("scope") scope: String = "projects user_info issues notes"
+        @Field("scope") scope: String = AppConstants.STORAGE_KEYS.DEFAULT_GITEE_SCOPE
+    ): Response<GiteeToken>
+
+    /**
+     * 通过以下 refresh_token 方式重新获取 access_token
+     */
+    @FormUrlEncoded
+    @Headers("Content-Type: application/x-www-form-urlencoded")
+    @POST("oauth/token")
+    suspend fun refreshToken(
+        @Field("grant_type") grantType: String = "refresh_token",
+        @Field("refresh_token") refreshToken: String
     ): Response<GiteeToken>
 }
